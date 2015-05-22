@@ -71,6 +71,8 @@
 - (NSMenuItem *)createTextToolsMenuItem
 {
 	NSMenu *submenu = [[NSMenu alloc] init];
+    NSMenuItem *menuItem = nil;
+    
 	[submenu addItem:[self createMenuItemWithTitle:@"Cut Lines" action:@selector(cutLines_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Copy Lines" action:@selector(copyLines_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Paste Lines" action:@selector(pasteLines_clicked:)]];
@@ -81,7 +83,12 @@
 	[submenu addItem:[self createMenuItemWithTitle:@"Select Methods and Functions" action:@selector(selectSubroutines_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Select Method and Function Signatures" action:@selector(selectSubroutineSignatures_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Duplicate Methods and Functions" action:@selector(duplicateSubroutines_clicked:)]];
-	[submenu addItem:[self createMenuItemWithTitle:@"Copy Method and Function Declarations" action:@selector(copySubroutineDeclarations_clicked:)]];
+    
+    menuItem = [self createMenuItemWithTitle:@"Copy Method and Function Declarations" action:@selector(copySubroutineDeclarations_clicked:)];
+    [menuItem setKeyEquivalent:@"c"];
+    [menuItem setKeyEquivalentModifierMask:(NSControlKeyMask | NSAlternateKeyMask | NSCommandKeyMask)];
+	[submenu addItem:menuItem];
+    
 	[submenu addItem:[NSMenuItem separatorItem]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Highlight Occurences of Symbol" action:@selector(highlightSelectedSymbols_clicked:)]];
 	[submenu addItem:[self createMenuItemWithTitle:@"Highlight Occurences of String" action:@selector(highlightSelectedStrings_clicked:)]];
