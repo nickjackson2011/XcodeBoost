@@ -46,3 +46,7 @@ Notice the indicators in the scrollbar. They show where the symbols have been fo
 ## Like the color theme in those screenshots?
 
 You can also install the [Irradiated](https://github.com/fortinmike/irradiated-xcode-theme) color theme using Alcatraz.
+
+## Additional
+
+Add shortcut for “Copy Method and Function Declarations” ---> Control + Option + Command + c
