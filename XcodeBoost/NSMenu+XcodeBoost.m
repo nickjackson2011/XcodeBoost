@@ -18,18 +18,18 @@
 - (void)xb_insertItems:(NSArray *)items beforeItem:(NSUInteger)itemIndexInMatches where:(CollectorConditionBlock)condition
 {
 	NSArray *matches = [[self itemArray] ct_where:condition];
-//	NSMenuItem *match = (itemIndexInMatches < [matches count] ? matches[itemIndexInMatches] : [matches lastObject]);
+	NSMenuItem *match = (itemIndexInMatches < [matches count] ? matches[itemIndexInMatches] : [matches lastObject]);
 	
-//	if (match)
-//	{
-//		[self xb_insertItems:items atIndex:[self indexOfItem:match]];
-//	}
-//	else
-//	{
+	if (match)
+	{
+		[self xb_insertItems:items atIndex:[self indexOfItem:match]];
+	}
+	else
+	{
 		// If we didn't find a match, append the menu items
 		// at the end rather than not displaying them at all.
 		[self xb_addItems:items];
-//	}
+	}
 }
 
 - (void)xb_addItems:(NSArray *)items
